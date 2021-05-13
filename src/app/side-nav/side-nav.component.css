@@ -1,0 +1,29 @@
+.sidenav{
+  background: #36434A ;
+  height: 100%;
+  width: 250px;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 7);
+  margin-right: 15px;
+  border-radius: 7px;
+  transition: .7s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+}
+.profile img{
+  width: 100px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-radius: 100px;
+
+}
+h1{
+  color: white;
+  text-align: center;
+  font-size: x-large;
+}
+h1:hover{
+  color: red;
+  font-size: xx-large;
+}

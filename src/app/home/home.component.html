@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>{{title}}</h1>
+
+  <div class="list-container">
+
+    <div class="todo-container column-container">
+      <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todos" [cdkDropListConnectedTo]="[doneList, progList]" (cdkDropListDropped)="onDrop($event)">
+        <h2>Not Started</h2>
+        <mat-card *ngFor="let todo of todos" cdkDrag>
+          <mat-card-header>
+            <mat-card-title>{{todo.name}}</mat-card-title>
+            <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
+            <mat-card-subtitle>{{todo.date}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="prog-container column-container">
+      <div class="list" cdkDropList #progList="cdkDropList" [cdkDropListData]="inProgress" [cdkDropListConnectedTo]="[todoList, doneList]" (cdkDropListDropped)="onDrop($event)">
+        <h2>In Progress</h2>
+        <mat-card *ngFor="let inProgress of inProgress" cdkDrag>
+          <mat-card-header>
+            <mat-card-title>{{inProgress.name}}</mat-card-title>
+            <mat-card-subtitle>{{inProgress.category}}</mat-card-subtitle>
+            <mat-card-content>{{inProgress.date}}</mat-card-content>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="done-container column-container">
+      <div class="list" cdkDropList #doneList="cdkDropList" [cdkDropListData]="completed" [cdkDropListConnectedTo]="progList" (cdkDropListDropped)="onDrop($event)">
+        <h2>Completed</h2>
+        <mat-card *ngFor="let complete of completed" cdkDrag style="background-color:grey;">
+          <mat-card-header>
+            <mat-card-title style="color:white;">{{complete.name}}</mat-card-title>
+            <mat-card-subtitle style="color:white;"><s>{{complete.category}}</s></mat-card-subtitle>
+            <mat-card-subtitle style="color:white;">{{complete.date}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</div>
